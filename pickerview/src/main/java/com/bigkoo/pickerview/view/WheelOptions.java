@@ -351,10 +351,10 @@ public class WheelOptions<T> {
             }
         }
         //二级不为空时，再考虑三级的计算
-        if (mOptions2Items.get(currentItems[0]).size() > 0 && mOptions3Items.get(currentItems[0]).get(currentItems[1]).size() > 0) {
+        if (mOptions3Items != null && mOptions3Items.size() > 0 && mOptions2Items.get(currentItems[0]).size() > 0 && mOptions3Items.get(currentItems[0]).get(currentItems[1]).size() > 0) {
             //新增 ：  mOptions3Items.get(currentItems[1]).size() > 0
             //一级对应二级数据长度不为0
-            if (mOptions3Items != null && mOptions3Items.size() > 0) {
+            if (1 == 1) {
                 currentItems[2] = wv_option3.getCurrentItem() > (mOptions3Items.get(currentItems[0]).get(currentItems[1]).size() - 1) ? 0 : wv_option3.getCurrentItem();
             } else {
                 currentItems[2] = wv_option3.getCurrentItem();
