@@ -146,6 +146,9 @@ public class WheelOptions<T> {
                         if (optionsSelectChangeListener != null) {
                             optionsSelectChangeListener.onOptionsSelectChanged(wv_option1.getCurrentItem(), index, opt3);
                         }
+                    }else{
+                        //清空上一次的三级数据
+                        wv_option3.setAdapter(null);
                     }
                 } else {//只有2级联动数据，滑动第2项回调
                     if (optionsSelectChangeListener != null) {
@@ -336,21 +339,26 @@ public class WheelOptions<T> {
      * @return 索引数组
      */
     public int[] getCurrentItems() {
-        int[] currentItems = new int[3];
+        int[] currentItems = new int[]{0,-1,-1};
         currentItems[0] = wv_option1.getCurrentItem();
         //新增 ：  mOptions2Items.get(currentItems[0]).size() > 0
         //一级对应二级数据长度不为0
-        if (mOptions2Items != null && mOptions2Items.size() > 0 && mOptions2Items.get(currentItems[0]).size() > 0) {//非空判断
-            currentItems[1] = wv_option2.getCurrentItem() > (mOptions2Items.get(currentItems[0]).size() - 1) ? 0 : wv_option2.getCurrentItem();
-        } else {
-            currentItems[1] = wv_option2.getCurrentItem();
+        if (mOptions2Items != null && mOptions2Items.size() > 0 && mOptions2Items.get(currentItems[0]).size() > 0) {
+            if (1 == 1) {
+                currentItems[1] = wv_option2.getCurrentItem() > (mOptions2Items.get(currentItems[0]).size() - 1) ? 0 : wv_option2.getCurrentItem();
+            } else {
+                currentItems[1] = wv_option2.getCurrentItem();
+            }
         }
-        //新增 ：  mOptions3Items.get(currentItems[1]).size() > 0
-        //一级对应二级数据长度不为0
-        if (mOptions3Items != null && mOptions3Items.size() > 0 && mOptions3Items.get( currentItems[1]).size() > 0) {//非空判断
-            currentItems[2] = wv_option3.getCurrentItem() > (mOptions3Items.get(currentItems[0]).get(currentItems[1]).size() - 1) ? 0 : wv_option3.getCurrentItem();
-        } else {
-            currentItems[2] = wv_option3.getCurrentItem();
+        //二级不为空时，再考虑三级的计算
+        if (mOptions2Items.get(currentItems[0]).size() > 0 && mOptions3Items.get(currentItems[0]).get(currentItems[1]).size() > 0) {
+            //新增 ：  mOptions3Items.get(currentItems[1]).size() > 0
+            //一级对应二级数据长度不为0
+            if (mOptions3Items != null && mOptions3Items.size() > 0) {
+                currentItems[2] = wv_option3.getCurrentItem() > (mOptions3Items.get(currentItems[0]).get(currentItems[1]).size() - 1) ? 0 : wv_option3.getCurrentItem();
+            } else {
+                currentItems[2] = wv_option3.getCurrentItem();
+            }
         }
 
         return currentItems;
