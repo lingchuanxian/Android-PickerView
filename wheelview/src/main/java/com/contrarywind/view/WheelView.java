@@ -550,16 +550,15 @@ public class WheelView extends View {
         paintCenterText.getTextBounds(contentText, 0, contentText.length(), rect);
         int width = rect.width();
         int size = textSize;
-//        while (width > measuredWidth) {
-//            size--;
-//            //设置2条横线中间的文字大小
-//            paintCenterText.setTextSize(size);
-//            paintCenterText.getTextBounds(contentText, 0, contentText.length(), rect);
-//            width = rect.width();
-//        }
+        while (width > measuredWidth) {
+            size--;
+            //设置2条横线中间的文字大小
+            paintCenterText.setTextSize(size);
+            paintCenterText.getTextBounds(contentText, 0, contentText.length(), rect);
+            width = rect.width();
+        }
         //设置2条横线外面的文字大小
         paintOuterText.setTextSize(size);
-        paintCenterText.setTextSize(size);
     }
 
 

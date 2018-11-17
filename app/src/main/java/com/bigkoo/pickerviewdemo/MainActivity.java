@@ -454,15 +454,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //选项2
         ArrayList<String> options2Items_01 = new ArrayList<>();
-//        options2Items_01.add("广州");
-//        options2Items_01.add("佛山");
-//        options2Items_01.add("东莞");
-//        options2Items_01.add("珠海");
+        options2Items_01.add("广州");
+        options2Items_01.add("佛山");
+        options2Items_01.add("东莞");
+        options2Items_01.add("珠海");
         ArrayList<String> options2Items_02 = new ArrayList<>();
-        options2Items_02.add("长沙");
-        options2Items_02.add("岳阳");
-        options2Items_02.add("株洲");
-        options2Items_02.add("衡阳");
+//        options2Items_02.add("长沙");
+//        options2Items_02.add("岳阳");
+//        options2Items_02.add("株洲");
+//        options2Items_02.add("衡阳");
         ArrayList<String> options2Items_03 = new ArrayList<>();
         options2Items_03.add("桂林");
         options2Items_03.add("玉林");
@@ -473,21 +473,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //选项3
         ArrayList<ArrayList<String>> options3Items_01 = new ArrayList<>();
         ArrayList<String> options3Items_01_01 = new ArrayList<>();
-//        options3Items_01_01.add("福州");
-//        options3Items_01_01.add("福州");
-//        options3Items_01_01.add("福州");
+        options3Items_01_01.add("福州");
+        options3Items_01_01.add("福州");
+        options3Items_01_01.add("福州");
         ArrayList<String> options3Items_01_02 = new ArrayList<>();
         options3Items_01_02.add("德化");
         options3Items_01_02.add("德化");
         options3Items_01_02.add("德化");
         options3Items_01.add(options3Items_01_01);
         options3Items_01.add(options3Items_01_02);
+
         ArrayList<ArrayList<String>> options3Items_02 = new ArrayList<>();
         ArrayList<String> options3Items_02_01 = new ArrayList<>();
         options3Items_02_01.add("福州");
         options3Items_02_01.add("厦门");
         options3Items_02_01.add("厦门");
         options3Items_02.add(options3Items_02_01);
+
         ArrayList<ArrayList<String>> options3Items_03 = new ArrayList<>();
         ArrayList<String> options3Items_03_01 = new ArrayList<>();
         options3Items_03_01.add("福州");
@@ -503,15 +505,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void getCardData() {
         for (int i = 0; i < 5; i++) {
-            cardItem.add(new CardBean(i, "No.ABC12345 " + i));
+            cardItem.add(new CardBean(i, "No.ABC12345 KFCMacDonaldMacDonaldMacDonaldMacDonaldMacDonaldMacDonaldMacD" + i));
         }
 
-        for (int i = 0; i < cardItem.size(); i++) {
-            if (cardItem.get(i).getCardNo().length() > 6) {
-                String str_item = cardItem.get(i).getCardNo().substring(0, 6) + "...";
-                cardItem.get(i).setCardNo(str_item);
-            }
-        }
+//        for (int i = 0; i < cardItem.size(); i++) {
+//            if (cardItem.get(i).getCardNo().length() > 6) {
+//                String str_item = cardItem.get(i).getCardNo().substring(0, 6) + "...";
+//                cardItem.get(i).setCardNo(str_item);
+//            }
+//        }
     }
 
     private void getNoLinkData() {
